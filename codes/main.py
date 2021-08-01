@@ -1,6 +1,7 @@
 import requests
 import bs4
 import tkinter as tk
+from PIL import Image, ImageTk
 
 # Requesting data from worldmeters.
 def get_html_data(url):
@@ -54,8 +55,15 @@ root.geometry("600x600")
 root.title("Covid Tracker")
 f = ("poppins",25,"bold")
 
+
+image = Image.open("img\covid.png")
+resize_image = image.resize((50, 50))
+banner = ImageTk.PhotoImage(resize_image)
+bannerlable= tk.Label(root, image=banner)
+bannerlable.pack(padx=10,pady=10)
+
 mainlable = tk.Label(root,text=get_covid_data(), font=f)
-mainlable.pack()
+mainlable.pack(padx=10,pady=10)
 
 textfield = tk.Entry(root,width=50,font=f)
 textfield.pack(padx=10,pady=10)
