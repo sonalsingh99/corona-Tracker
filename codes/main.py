@@ -39,6 +39,9 @@ def get_country_data():
         count = info_div[block].find("span", class_ = None).get_text()
         all_data = all_data + text + " " + count +"\n" 
 
+        
+    mainlable['text']= all_data
+    textfield.delete(0,'end')
 
 # Reloading the world's data.
 def reload():
